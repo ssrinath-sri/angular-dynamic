@@ -1,0 +1,33 @@
+<h2 style="text-align: center;"> Add Student Details</h2>
+<hr>
+<form (ngSubmit)="onsubmit()">
+  <div class="container">
+    <div class="form-row" *ngFor="let obj of dataarray; let i=index">
+
+      <div class="form-group col-md-4">
+        <label>First Name</label>
+        <input type="text" class="form-control" name="firstname{{i}}" [(ngModel)]="obj.firstname">
+      </div>
+      <div class="form-group col-md-4">
+        <label>Last Name</label>
+        <input type="text" class="form-control" name="lastname{{i}}" [(ngModel)]="obj.lastname">
+      </div>
+      <div class="form-group col-md-2">
+        <label>Mobile Number</label>
+        <input type="text" class="form-control" name="mobilenumber{{i}}" [(ngModel)]="obj.mobilenumber">
+      </div>
+      <div class="form-group col-md-2">
+        <label>Date of Birth</label>
+        <input type="text" class="form-control" name="dob{{i}}" [(ngModel)]="obj.dob">
+      </div>
+
+      <div class="form-group col-md-2" *ngIf="i!=0">
+        <span (click)="removeForm(i)" class="btn btn-danger">-</span>
+      </div>
+
+    </div>
+    <span (click)="addForm()" class="btn btn-success">+</span>
+    <button class="btn btn-primary">Submit</button>
+  </div>
+
+</form>
